@@ -1,0 +1,30 @@
+{
+  "name": "salemghoweri.com",
+  "version": "0.0.0-development",
+  "description": "Salem Ghoweri's Personal Site + Blog",
+  "main": "index.js",
+  "scripts": {
+    "serve": "eleventy --watch --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sghoweri/salemghoweri.com.git"
+  },
+  "keywords": [
+    "Blog"
+  ],
+  "author": "Salem Ghoweri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sghoweri/salemghoweri.com/issues"
+  },
+  "homepage": "https://github.com/sghoweri/salemghoweri.com#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.7.1",
+    "@11ty/eleventy-plugin-rss": "^1.0.3",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.0",
+    "luxon": "^1.0.0",
+    "markdown-it": "^8.4.1",
+    "markdown-it-anchor": "^5.0.2"
+  }
+}

@@ -1,2 +1,1 @@
-# salemghoweri.com
-Personal Website + Blog
+# Salem Ghoweri.com
