@@ -1,0 +1,12 @@
+
+@include mq(sm){
+  .u-order-neg-1\@sm {
+    order: -1;
+  }
+}
+
+@include mq(md){
+  .u-order-neg-1\@md {
+    order: -1;
+  }
+}

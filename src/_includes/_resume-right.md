@@ -7,8 +7,6 @@
 - Design Systems
 - Front-end Tooling
 
-
-
 ## Technical Skills
 
 ### Web Component Architecture

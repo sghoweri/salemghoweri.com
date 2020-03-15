@@ -2,13 +2,6 @@
    #GRID
    ========================================================================== */
 
-:root {
-  --spacing-xs: .5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-}
-
    /**
     * 1. Workaround to Safari layout getting thrown off when using a negative letter-spacing to remove inline-block whitespace
     *    @TODO: remove when v1 grid with CSS Grid support rolls out

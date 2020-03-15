@@ -1,0 +1,102 @@
+
+// Add additional spacing size rules for handling auto and zero'd rules
+$spacing-sizes-extras: (
+  none: 0,
+  auto: auto,
+);
+
+// Merge extra size options into Sass Map of sizes that already exist, tacking on to the front
+$spacing-sizes: map-merge($spacing-sizes-extras, $spacing-sizes);
+
+// prefix prop name if value set
+@function prefix-prop-name($propName) {
+  @if ($propName != '') {
+    @return '-' + $propName;
+  } @else {
+    @return $propName;
+  }
+}
+
+// $spacing-properties: (
+//   padding, margin
+// );
+
+$spacing-properties: (
+  padding: p,
+  margin: m,
+);
+
+$spacing-directions: (
+  top: t,
+  bottom: b,
+  left: l,
+  right: r,
+);
+
+
+
+@mixin spacing-utils($breakpoint: null) {
+  @each $propName, $propAlias in $spacing-properties {
+    @each $directionName, $directionAlias in $spacing-directions {
+      // $direction: nth($spacing-directions, $i);
+
+      // @each $type in $spacing-types {
+        @each $sizeName, $sizeValue in $spacing-sizes {
+          // $sizeName: prefix-prop-name($size);
+          // $dirName: prefix-prop-name($dir);
+          // $propName: prefix-prop-name($prop);
+          // $typeName: prefix-prop-name($type);
+          // $propName: $prop;
+
+          @if ($sizeName== 'none' and $sizeValue == 0) {
+            $sizeValue: 0;
+          }
+
+          // skip over certain combos that don't make a lot of sense...
+          // NOTE: this shaves off nearly 22KB from the total CSS file size (aka cuts the total size in HALF)!
+          @if $propName == 'padding' and $sizeName == 'auto' {
+            /* stylelint-disable-line block-no-empty */
+          } @else {
+            // if $size != 'xsmall' and $size != 'xxsmall' and $size != 'xlarge' and $breakpoint != \@xlarge {
+            // Ex. .u-margin-left-large@small
+            // Ex. .u-margin-left-medium
+            // Ex. .u-margin-right
+            .u-#{$propAlias}#{$directionAlias}-#{$sizeName}#{$breakpoint} {
+              #{$propName}-#{$directionName}: $sizeValue !important;
+
+              // @debug u-#{$propAlias}#{$directionAlias}-#{$sizeName}#{$breakpoint};
+              // @debug $sizeValue;
+
+              // $sizes: null null null null;
+              // $spacing-directions: ('top', 'right', 'bottom', 'left');
+              // $size-index: index($spacing-directions, $direction);
+              // @if ($direction != '') {
+              //   $sizes: set-nth($sizes, $size-index, $size);
+              // } @else {
+              //   $sizes: $size $size $size $size;
+              // }
+              // $normalizedSizes: get-spacing-size($sizes, $type);
+
+              // @include directional-property(
+              //   #{$prop},
+              //   false,
+              //   $normalizedSizes,
+              //   important
+              // );
+            }
+          }
+        }
+      // }
+    }
+  }
+}
+
+@include spacing-utils;
+
+// // Loop over our breakpoints
+// @each $breakpoint in $breakpoints {
+//   $breakpointName: nth($breakpoint, 1);
+//   @include mq($breakpointName) {
+//     @include spacing-utils(\@#{$breakpointName});
+//   }
+// }

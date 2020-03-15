@@ -13,15 +13,47 @@
   --navy: #17050F;
   --blue: #082840;
   --white: #fff;
+
+  --theme-lightgray: #FFFFFF80;
+  --theme-gray: #EBEBEB;
+  --theme-black: #212121;
+  --theme-white: #FFF;
 }
 
 @import './_settings.breakpoints.scss';
+@import './_settings.spacing.scss';
+
+@import './_generic.resets.scss';
+
 @import './_objects.grid.scss';
+
+@import './_utilities.order.scss';
+@import './_utilities.spacing.scss';
 @import './_utilities.width.scss';
 
-* {
-  box-sizing: border-box;
+.u-flex {
+  display: flex !important;
 }
+
+.u-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.t-lightgray {
+  color: var(--theme-black);
+  background-color: var(--theme-lightgray);
+}
+
+.t-gray {
+  color: var(--theme-black);
+  background-color: var(--theme-gray);
+}
+
+.t-black {
+  color: var(--theme-white);
+  background-color: var(--theme-black);
+}
+
 
 html,
 body {
@@ -49,9 +81,7 @@ a[href] {
 a[href]:visited {
   color: var(--navy);
 }
-main {
-  padding: 1rem;
-}
+
 main :first-child {
   margin-top: 0;
 }
@@ -227,16 +257,4 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
-}
-
-@include mq(sm){
-  .u-order-neg-1\@sm {
-    order: -1;
-  }
-}
-
-@include mq(md){
-  .u-order-neg-1\@md {
-    order: -1;
-  }
 }
