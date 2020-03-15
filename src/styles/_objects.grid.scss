@@ -1,0 +1,209 @@
+/* ==========================================================================
+   #GRID
+   ========================================================================== */
+
+:root {
+  --spacing-xs: .5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+}
+
+   /**
+    * 1. Workaround to Safari layout getting thrown off when using a negative letter-spacing to remove inline-block whitespace
+    *    @TODO: remove when v1 grid with CSS Grid support rolls out
+    * 2. Reset local font-size inheritance to prevent components w/o default font sizes from breaking
+    */
+   .o-grid {
+     flex: 1 1 auto; 
+     margin: 0;
+     margin-left: calc(var(--spacing-md) * -1);
+     padding: 0;
+     list-style: none;
+     font-size: 0; /* stylelint-disable-line */ /* [1] */
+   }
+   
+   .o-grid__item {
+     display: inline-block;
+     position: relative;
+     padding-left: var(--spacing-md);
+     vertical-align: top;
+     font-size: 1rem; /* stylelint-disable-line */ /* [2] */
+   }
+   
+   // Outer grid wrapper used with the "bordered" variation in order to hide overflowing cell padding / borders.
+   .o-grid-wrapper {
+     overflow: hidden;
+   }
+   
+   .o-grid--rev {
+     direction: rtl;
+   
+     > .o-grid__item {
+       direction: ltr;
+     }
+   }
+   
+   /**
+    * Gutterless grids have all the properties of regular grids, minus any spacing.
+    * Extends `.o-grid`.
+    */
+   .o-grid--full {
+     margin-left: 0;
+   
+     > .o-grid__item {
+       padding-left: 0;
+     }
+   }
+   
+   /**
+    * Centered grids align grid cells centrally without needing to use push or pull
+    * classes. Extends `.o-grid`.
+    */
+   .o-grid--center {
+     justify-content: center;
+     text-align: center;
+   
+     > .o-grid__item {
+       text-align: left;
+     }
+   }
+   
+   /**
+    * Align grid cells vertically (`.o-grid--middle` or `.o-grid--bottom`). Extends
+    * `.o-grid`.
+    */
+   .o-grid--middle {
+     &.o-grid--flex {
+       align-items: center;
+     }
+   
+     > .o-grid__item {
+       vertical-align: middle;
+     }
+   }
+   
+   .o-grid--bottom {
+     &.o-grid--flex {
+       align-items: flex-end;
+     }
+   
+     > .o-grid__item {
+       vertical-align: bottom;
+     }
+   }
+   
+   /**
+    * Align the entire grid to the right. Extends `.grid`.
+    */
+   .o-grid--right {
+     justify-content: flex-end;
+     text-align: right;
+   
+     > .o-grid__item {
+       text-align: left;
+     }
+   }
+   
+   .o-grid__item--middle {
+     align-self: center;
+     vertical-align: middle;
+   }
+   
+   .o-grid__item--top {
+     align-self: flex-start;
+     vertical-align: top;
+   }
+   
+   .o-grid__item--bottom {
+     align-self: flex-end;
+     vertical-align: bottom;
+   }
+   
+   // Grid gutter sizes
+   // .o-grid--xsmall {
+   //   margin-left: bolt-spacing(xsmall) * -1;
+   //
+   //   > .o-grid__item {
+   //     padding-left: bolt-spacing(xsmall);
+   //   }
+   // }
+   .o-grid--xs {
+     margin-left: calc(var(--spacing-xs) * -1);
+   
+     > .o-grid__item {
+       padding-left: var(--spacing-xs);
+     }
+   }
+   
+   .o-grid--sm {
+     margin-left: calc(var(--spacing-sm) * -1);
+   
+     > .o-grid__item {
+       padding-left: var(--spacing-sm);
+     }
+   }
+   
+   /**
+    * Large gutters
+    */
+   .o-grid--lg {
+     margin-left: calc(var(--spacing-lg) * -1);
+   
+     > .o-grid__item {
+       padding-left: var(--spacing-lg);
+     }
+   }
+   
+   /**
+    * Extra wide gutters
+    */
+   .o-grid--xl {
+     margin-left: calc(var(--spacing-xl) * -1);
+   
+     > .o-grid__item {
+       padding-left: var(--spacing-lg);
+     }
+   }
+   
+   
+   .o-grid--flex {
+     display: flex;
+     flex-flow: row wrap;
+   }
+   
+   .o-grid--matrix {
+     &.o-grid--xs {
+       margin-bottom: calc(var(--spacing-xs) * -1);
+   
+       > .o-grid__item {
+         padding-bottom: var(--spacing-xs);
+       }
+     }
+   
+     &.o-grid--sm {
+       margin-bottom: calc(var(--spacing-sm) * -1);
+   
+       > .o-grid__item {
+         padding-bottom: var(--spacing-sm);
+       }
+     }
+   
+     &,
+     &.o-grid--md {
+       margin-bottom: calc(var(--spacing-md) * -1);
+   
+       > .o-grid__item {
+         padding-bottom: var(--spacing-md);
+       }
+     }
+   
+     &.o-grid--lg {
+       margin-bottom: calc(var(--spacing-lg) * -1);
+   
+       > .o-grid__item {
+         padding-bottom: var(--spacing-lg);
+       }
+     }
+   }
+   

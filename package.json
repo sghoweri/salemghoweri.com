@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint *.js src/**/*.mjs",
-    "build": "rollup -c",
+    "build": "eleventy & rollup -c",
     "glitch": "git pull -s recursive -X theirs origin master && refresh",
     "prestart": "if [ ! -d \"./public\" ]; then npm run build; fi",
-    "start": "node server.js",
     "_watch": "trap 'kill %1 && exit 0' SIGINT; node server.js & rollup -cw",
-    "watch": "trap 'kill %1 && exit 0' SIGINT; rollup -cw & yarn serve",
+    "start": "trap 'kill %1 && exit 0' SIGINT; rollup -cw & yarn serve",
     "serve": "eleventy --watch --serve"
   },
   "repository": {
@@ -30,6 +29,7 @@
   },
   "homepage": "https://github.com/sghoweri/salemghoweri.com#readme",
   "dependencies": {
+    "sass-mq": "^5.0.1",
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",

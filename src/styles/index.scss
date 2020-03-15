@@ -15,6 +15,10 @@
   --white: #fff;
 }
 
+@import './_settings.breakpoints.scss';
+@import './_objects.grid.scss';
+@import './_utilities.width.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -25,7 +29,7 @@ body {
   margin: 0;
   font-family: sans-serif;
   color: var(--darkgray);
-  // background-color: var(--white);
+  background-color: var(--white);
 }
 p:last-child {
   margin-bottom: 0;
@@ -223,4 +227,16 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+@include mq(sm){
+  .u-order-neg-1\@sm {
+    order: -1;
+  }
+}
+
+@include mq(md){
+  .u-order-neg-1\@md {
+    order: -1;
+  }
 }
