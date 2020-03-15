@@ -8,12 +8,12 @@ $spacing-sizes-extras: (
 // Merge extra size options into Sass Map of sizes that already exist, tacking on to the front
 $spacing-sizes: map-merge($spacing-sizes-extras, $spacing-sizes);
 
-// prefix prop name if value set
-@function prefix-prop-name($propName) {
-  @if ($propName != '') {
-    @return '-' + $propName;
-  } @else {
+// prefix prop name if value set and 
+@function prefix-prop-name($propName, $exceptFor: '') {
+  @if ($propName == $exceptFor) {
     @return $propName;
+  } @else {
+    @return '-' + $propName;
   }
 }
 
@@ -31,8 +31,8 @@ $spacing-directions: (
   bottom: b,
   left: l,
   right: r,
+  all: '',
 );
-
 
 
 @mixin spacing-utils($breakpoint: null) {
@@ -42,15 +42,24 @@ $spacing-directions: (
 
       // @each $type in $spacing-types {
         @each $sizeName, $sizeValue in $spacing-sizes {
-          // $sizeName: prefix-prop-name($size);
-          // $dirName: prefix-prop-name($dir);
+          @if ($sizeName== 'none' and $sizeValue == 0) {
+            $sizeValue: 0;
+          }
+
+          $dirName: $directionName;
+
+          @if ($dirName == 'all'){
+            $dirName: '';
+          }
+          
+          $sizeName: prefix-prop-name($sizeName);
+          // $directionAlias: prefix-prop-name($directionAlias, 'all');
+          $dirName: prefix-prop-name($dirName);
           // $propName: prefix-prop-name($prop);
           // $typeName: prefix-prop-name($type);
           // $propName: $prop;
 
-          @if ($sizeName== 'none' and $sizeValue == 0) {
-            $sizeValue: 0;
-          }
+         
 
           // skip over certain combos that don't make a lot of sense...
           // NOTE: this shaves off nearly 22KB from the total CSS file size (aka cuts the total size in HALF)!
@@ -61,8 +70,8 @@ $spacing-directions: (
             // Ex. .u-margin-left-large@small
             // Ex. .u-margin-left-medium
             // Ex. .u-margin-right
-            .u-#{$propAlias}#{$directionAlias}-#{$sizeName}#{$breakpoint} {
-              #{$propName}-#{$directionName}: $sizeValue !important;
+            .u-#{$propAlias}#{$directionAlias}#{$sizeName}#{$breakpoint} {
+              #{$propName}#{$dirName}: $sizeValue !important;
 
               // @debug u-#{$propAlias}#{$directionAlias}-#{$sizeName}#{$breakpoint};
               // @debug $sizeValue;
@@ -94,9 +103,9 @@ $spacing-directions: (
 @include spacing-utils;
 
 // // Loop over our breakpoints
-// @each $breakpoint in $breakpoints {
-//   $breakpointName: nth($breakpoint, 1);
-//   @include mq($breakpointName) {
-//     @include spacing-utils(\@#{$breakpointName});
-//   }
-// }
+@each $breakpoint in $breakpoints {
+  $breakpointName: nth($breakpoint, 1);
+  @include mq($breakpointName) {
+    @include spacing-utils(\@#{$breakpointName});
+  }
+}

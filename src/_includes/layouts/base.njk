@@ -12,11 +12,11 @@
     <script src="/build/main.mjs" type="module" async></script>
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-      <ul class="nav">
+    <header class="c-header">
+      <h1 class="c-header__home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      <ul class="c-nav">
         {%- for nav in collections.nav | reverse -%}
-        <li class="nav-item{% if nav.url == page.url %} nav-item-active{% endif %}"><a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
+        <li class="c-nav__item{% if nav.url == page.url %} c-nav__item--active{% endif %}"><a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
         {%- endfor -%}
       </ul>
     </header>

@@ -1,0 +1,19 @@
+
+// https://blog.envylabs.com/responsive-typographic-scales-in-css-b9f60431d1c4
+:root {
+  --font-size-xxxl: 6.8535260698rem; // 1.618^(4/1)
+  --font-size-xxl: 4.235801032rem; // 1.618^(3/1)
+  --font-size-xl: 2.0581061761rem; // 1.618^(3/2)
+  --font-size-lg: 1.618rem; // 1.618^(1/1)
+  --font-size-md: 1rem;
+  --font-size-sm: 0.618rem; // 1.618^(-/1)
+  --font-size-xs: 0.3819820591rem; // 1.618^(-2/1)
+}
+
+// 1.618^(3/2)  ->  
+// 1.618^(2/2)  ->  1.618
+// 1.618^(1/2)  ->  1.272
+// 1.618^(-1/2) ->  0.7861
+// 1.618^(-2/2) ->  0.618
+// 1.618^(-3/2) ->  0.4856
+

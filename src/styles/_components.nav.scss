@@ -1,0 +1,20 @@
+/* Nav */
+.c-nav {
+  padding: 0;
+  list-style: none;
+  margin-left: var(--spacing-sm);
+}
+
+.c-nav__item {
+  display: inline-block;
+  margin-right: var(--spacing-md);
+}
+
+.c-nav__item a[href]:not(:hover) {
+  text-decoration: none;
+}
+
+.c-nav__item--active {
+  font-weight: 700;
+  text-decoration: underline;
+}

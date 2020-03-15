@@ -1,0 +1,21 @@
+.c-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed var(--lightgray);
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.c-header__home {
+  margin: var(--spacing-sm) 0; /* 16px /16 */
+  padding: 0 var(--spacing-sm);
+  font-size: var(--font-size-md); /* 16px /16 */
+
+  :link:not(:hover) {
+    text-decoration: none;
+  }
+}

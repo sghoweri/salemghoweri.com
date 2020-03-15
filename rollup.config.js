@@ -13,6 +13,7 @@
  limitations under the License.
 */
 
+import purgecss from '@fullhuman/postcss-purgecss';
 import path from 'path';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
@@ -109,25 +110,19 @@ function basePlugins({ nomodule = false } = {}) {
       // syntax: 'postcss-scss',
       // use: ['sass'],
       extract: true,
-      // inject: false,
       // modules: true,
       minimize: true,
-      // inject(cssVariableName, fileId) {
-      //   console.log(cssVariableName);
-      //   console.log(fileId);
-      // },
-      // extract: false,
-      // modules: true,
-      // namedExports: true,
-      // modules: true,
-      // use: ['scss'],
-      // loaders: [
-      //   sassLoader()
-      //   // {
-      //   //   // importer: [npmSass.importer],
-        //   data: globalSassData.join('\n'),
-      //   // }),
-      // ],
+      plugins: [
+        purgecss({
+          extractors: [
+            {
+              extractor: content => content.match(/[A-Za-z0-9\_\-\/\@]+/g) || [],
+              extensions: ['html']
+            },
+          ],
+          content: ['./**/*.html']
+        }),
+      ]
     }),
     nodeResolve(),
     commonjs(),
@@ -139,7 +134,6 @@ function basePlugins({ nomodule = false } = {}) {
           {
             targets: { browsers },
             useBuiltIns: 'usage',
-            // debug: true,
             corejs: 3,
           },
         ],

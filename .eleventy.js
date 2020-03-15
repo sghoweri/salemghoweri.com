@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -48,16 +49,23 @@ module.exports = function(eleventyConfig) {
   let options = {
     html: true,
     breaks: true,
-    linkify: true
+    linkify: true,
   };
   let opts = {
     permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
+    permalinkClass: "c-direct-link",
+    permalinkSymbol: "#",
+    permalinkSpace: false,
   };
 
   eleventyConfig.setLibrary("md", markdownIt(options)
     .use(markdownItAnchor, opts)
+    .use(markdownItAttrs, {
+      // optional, these are default options
+      leftDelimiter: '{',
+      rightDelimiter: '}',
+      allowedAttributes: []  // empty array = all attributes are allowed
+    })
   );
 
   eleventyConfig.setBrowserSyncConfig({

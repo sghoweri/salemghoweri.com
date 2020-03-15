@@ -1,0 +1,14 @@
+.c-direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  margin-left: .125em;
+  color: transparent;
+}
+
+.c-direct-link:focus,
+.c-direct-link:focus:visited,
+:hover > .c-direct-link,
+:hover > .c-direct-link:visited {
+  color: #aaa;
+}

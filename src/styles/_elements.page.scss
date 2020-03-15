@@ -1,0 +1,26 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: var(--darkgray);
+  background-color: var(--white);
+}
+
+
+html {
+  font-size: 15px;
+
+  @media (min-width: 320px) {
+    // font-size: calc(.1vw + 14.6px);
+    font-size: calc(.1vw + 15px);
+  }
+
+  // @media (min-width: 1400px){
+  //   font-size: calc(.385vw + 10.615px);
+  // }
+
+  @media (min-width: 1920px){
+    font-size: 18px;
+  }
+}

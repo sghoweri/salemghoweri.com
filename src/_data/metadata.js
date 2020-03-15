@@ -1,3 +1,3 @@
 module.exports = {
-  title: "Salem Ghoweri"
+  title: "Home"
 }

@@ -1,5 +1,5 @@
 
-## Contact Salem
+## Contact Me
 
 - [LinkedIn](https://www.linkedin.com/in/salemcobalt/)
 - [Github](https://github.com/sghoweri)

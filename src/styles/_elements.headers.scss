@@ -1,0 +1,21 @@
+h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+  // text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+h3 + ol,
+h3 + ul {
+  margin-top: calc(var(--spacing-xxs) * -1);
+}
