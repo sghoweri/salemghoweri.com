@@ -56,6 +56,7 @@ module.exports = function(eleventyConfig) {
     permalinkClass: "c-direct-link",
     permalinkSymbol: "#",
     permalinkSpace: false,
+    level: [1, 2],
   };
 
   eleventyConfig.setLibrary("md", markdownIt(options)

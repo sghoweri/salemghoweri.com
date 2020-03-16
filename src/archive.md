@@ -4,10 +4,12 @@ tags:
   - nav
 navtitle: Blog (In Progress)
 permalink: /posts/
-templateClass: o-wrapper
+templateClass: o-wrapper c-band c-band--md foo
+templateEngineOverride: njk,md
 ---
 
-<h1>Blog Posts</h1>
+## Blog Posts
 
 {% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+
+{%- include "postslist.njk" -%}

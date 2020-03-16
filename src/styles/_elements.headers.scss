@@ -1,18 +1,22 @@
 h1 {
-  font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-xl);
 }
 
 h2 {
-  font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-xs);
-  // text-transform: uppercase;
   letter-spacing: -1px;
+  font-size: var(--font-size-lg);
+  // text-transform: uppercase;
 }
 
 h3 {
   font-size: var(--font-size-md);
   margin-bottom: var(--spacing-xs);
+}
+
+h2 + h3 {
+  margin-top: var(--spacing-xxs);
 }
 
 h3 + ol,

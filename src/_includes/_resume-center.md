@@ -1,7 +1,7 @@
 
 # Salem Cobalt {.c-heading__title}
 
-## Lead Frontend Architect, Design Systems {.c-heading__subtitle}
+## Lead Frontend Architect, Design&nbsp;Systems {.c-heading__subtitle}
 
 
 ## Work Experience
