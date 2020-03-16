@@ -6,7 +6,7 @@
     <title>{{ renderData.title or title or metadata.title }}</title>
     <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
     <link rel="stylesheet" href="{{ '/build/main.css' | url }}">
-    <link rel="stylesheet" href="{{ '/styles/prism-base16-monokai.dark.css' | url }}">
+    {# <link rel="stylesheet" href="{{ '/styles/prism-base16-monokai.dark.css' | url }}"> #}
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
     <script src="/build/main.mjs" type="module" async></script>
