@@ -17,13 +17,14 @@
 
 ### Scalable CSS Architecture
 - Specialization in scalable, maintainable BEM / ITCSS-based Sass architecture.
-- Animations, CSS custom properties, etc
+- Animations, CSS custom properties, advanced user customization, etc.
 
 ### Modern UI Components
+- React + Typescript
 - Atomic Design
 - Comprehensive demos & documentation
-- Automated testing (Jest, Nightwatch.js, Snapshots, E2E & cross browser testing)
-- Schema-powered APIs, Props
+- Automated testing (Cypress, Jest, Nightwatch.js, Snapshots, E2E & cross browser testing)
+- Typescript; schema-based APIs, Props
 - Self-managed NPM dependencies (Lerna)
 
 ### Front-end Tools & Bundling
@@ -39,5 +40,5 @@
 ### Front-end DevOps & Automation
 - Continuous Integration & Deployment (Travis CI); Github Actions API integration 
 - Functional and E2E Integration Testing
-- Automated deployments (Now.sh, Netlify)
+- Automated deployments + deploy previews (Heroku, Vercel, Netlify)
 - Automated releases (Lerna, NPM, Github)
