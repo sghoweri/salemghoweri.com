@@ -44,7 +44,7 @@
     "@babel/plugin-proposal-decorators": "^7.15.8",
     "rollup-plugin-scss": "^2.1.0",
     "autoprefixer": "^9.7.4",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "npm-sass": "^2.3.0",
     "postcss-scss": "^2.0.0",
     "rollup-plugin-alias": "^2.2.0",
